@@ -46,19 +46,19 @@
             <br>
 
             <label for="website">adres strony:</label>
-            <input type="url" id= "website" name="website" placeholder="https://www.google.com" pattern="[A-Z]{3}[0-9]{6}"/>
+            <input type="url" id= "website" name="website" placeholder="https://www.google.com" pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?"/>
             <br>
 
             <label for="pathToCatalog">ścieżka do pliku w katalogu /etc/ </label>
-            <input type="" id= "pathToCatalog" name="pathToCatalog" placeholder="C:\test2\test" pattern="^(/)?([^/\0]+(/)?)+$"/>
+            <input type="" id= "pathToCatalog" name="pathToCatalog" placeholder="C:\test2\test" pattern="[a-zA-Z]:\(windows|winnt|win|dos|msdos)(\[0-9a-z]+)?"/>
             <br>
 
             <label for="pathWithLetter">ścieżka litera dysku:\katalog systemu</label>
-            <input type="" id= "pathWithLetter" name="pathWithLetter" placeholder="c:\test" pattern="[A-Z]{3}[0-9]{6}"/>
+            <input type="" id= "pathWithLetter" name="pathWithLetter" placeholder="c:\test" pattern="^(?:[a-z]:)?[\/\\]{0,2}(?:[.\/\\ ](?![.\/\\\n])|[^<>:|?*.\/\\ \n])+$"/>
             <br>
 
             <label for="teleNumber">Numer telefonu: </label>
-            <input type="tel" id= "teleNumber" name="teleNumber" placeholder="123456789" pattern="[A-Z]{3}[0-9]{6}"/>
+            <input type="tel" id= "teleNumber" name="teleNumber" placeholder="123456789" pattern="[1-9][0-9]{8}"/>
             <br>
 
             <input type="button" value="Losowe inputy!" onclick="Random();" />
@@ -71,11 +71,11 @@
         const zipCodes = ["1321adsa", "26-200", "90-001"];
         const nips = ["Pasda67890", "106-00-00-062", "aaaaaaaaaaaa"];
         const idCards = ["ABC123456", "ABC56", "1211"];
-        const ip4s = ["testowyemail@gmail.com", "testowyema123123mail.com", "testowyemai1111111om"];
-        const ip6s = ["1321adsa", "26-200", "90-001"];
+        const ip4s = ["127.255.255.255", "12722225.255.com", "test111111om"];
+        const ip6s = ["2001:0db8:85a3:0000:0000:8a2e:0370:7334", "5435435343", "2001:0db8:85a3:0000:0000:8a2e:0370:7344"];
         const websites = ["https://www.google.com", "106-22222-00-062", "aaaaaaaaaaaa"];
-        const pathToCatalogs = ["ABC123456", "ABC56", "1211"];
-        const pathWithLetters = ["Pasda67890", "106-00-00-062", "aaaaaaaaaaaa"];
+        const pathToCatalogs = ["/etc/passwd", "/etc/passwd", "1211"];
+        const pathWithLetters = ["C:\test", "106-00-00-062", "aaaaaaaaaaaa"];
         const teleNumbers = ["536013232", "ABC56", "111111"];
 
         document.getElementById('emailAddress').value = emails[rnd];
