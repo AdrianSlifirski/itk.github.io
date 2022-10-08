@@ -1,34 +1,66 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>lab1</title>
-    </head>
-    <body>
-        <h3 id="po">Input Array Elements</h3>
-        <form class="" action="" method="">
-        <Label>adres email</Label>
-        <input type="text" name="array[]" value="" /><br>
-        <Label>kod pocztowy</Label>
-        <input type="text" name="array[]" value="" /><br>
-        <Label>numer nip(z kreskami)</Label>
-        <input type="text" name="array[]" value="" /><br>
-        <Label>numer dowodu</Label>
-        <input type="text" name="array[]" value="" /><br>
-        <Label>adres ipv4</Label>
-        <input type="text" name="array[]" value="" /><br>
-        <Label>strona www</Label>
-        <input type="text" name="array[]" value="" /><br>
-        <Label>ścieżka litera dysku:\katalog systemu</Label>
-        <input type="text" name="array[]" value="" /><br>
-        <Label>ścieżka do pliku w katalogu /etc/ (np. /etc/passwd, /etc/hosts, itp)</Label>
-        <input type="text" name="array[]" value="" /><br>
-        <Label>adres ipv6</Label>
-        <input type="text" name="array[]" value="" /><br>
-        <Label>Numer telefonu</Label>
-        <input type="text" name="array[]" value="" /><br>
-        <button type="button" name="button">
-            Submit
-        </button>
-    </form>
-    </body>
+<head>
+    <title>lab1</title>
+    <style>
+      input:valid {
+        border: 2px solid rgb(27, 138, 27);
+      }
+      input:invalid {
+        border: 2px dashed rgb(161, 0, 0);
+      }
+      .center {
+        margin: auto;
+        width: 60%;
+        border: 3px solid #2009a1;
+        padding: 10px;
+        }       
+    </style>
+</head>
+<body>
+    <div class="center">
+        <span style="font-size: large">Wprowadz dane!</span>
+        <form>
+            <label for="emailAddress">adres email</label>
+            <input type="email" name="emailAddress" placeholder="testowyemail@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"/>
+            <br>
+
+            <label for="zipCode">kod pocztowy</label>
+            <input type="" name="zipCode" placeholder="11-222" pattern="[0-9]{2}-[0-9]{3}"/>
+            <br>
+
+            <label for="nip">kod NIP</label>
+            <input type="" name="nip"placeholder="333-333-33-33" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"/>
+            <br>
+
+            <label for="idCard">numer dowodu</label>
+            <input type="" name="idCard" placeholder="CEM443322" pattern="[A-Z]{3}[0-9]{6}"/>
+            <br>
+
+            <label for="ip4">ipv4: </label>
+            <input type="" name="ip4" placeholder="198.168.2.3" pattern="((^|\.)((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]?\d))){4}$"/>
+            <br>
+            
+            <label for="ip6">ipv6: </label>
+            <input type="" name="ip6" placeholder="1111:0ee8:eeee:1111:0000:3b1c:0370:7334" pattern="((^|:)([0-9a-fA-F]{0,4})){1,8}$"/>
+            <br>
+
+            <label for="website">adres strony:</label>
+            <input type="url" name="website" placeholder="https://www.google.com" pattern="[A-Z]{3}[0-9]{6}"/>
+            <br>
+
+            <label for="pathToCatalog">ścieżka do pliku w katalogu /etc/ </label>
+            <input type="" name="pathToCatalog" placeholder="C:\test2\test" pattern="^(/)?([^/\0]+(/)?)+$"/>
+            <br>
+
+            <label for="pathWithLetter">ścieżka litera dysku:\katalog systemu</label>
+            <input type="" name="pathWithLetter" placeholder="c:\test" pattern="[A-Z]{3}[0-9]{6}"/>
+            <br>
+
+            <label for="teleNumber">Numer telefonu: </label>
+            <input type="tel" name="teleNumber" placeholder="123456789" pattern="[A-Z]{3}[0-9]{6}"/>
+            <br>
+        </form>
+    </div>
+</body>
 </html>
