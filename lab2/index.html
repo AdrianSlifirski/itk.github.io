@@ -19,6 +19,8 @@
 </head>
 <body>
     <div class="center">
+        <a href="url">html</a>
+        <p></p>
         <span style="font-size: large">Wprowadz dane!</span>
         <p></p>
         <form>
@@ -67,10 +69,23 @@
             <br>
             <p></p>
             <label for="calendar_">Ograniczony kalendarz</label>
-            <input type="date" id="start" name="trip-start" min="2022-10-17" max="2022-10-21">
+            <input type="date" id="start" name="calendar" min="2022-10-17" max="2022-10-21">
+            <br>
+            <p></p>
+            <label for="time1">Format 12 godzinny</label>
+            <input type="time" id="time" name="time1" min="00:00:00" max="12:00:00">
+            <br>
+            <p></p>
+            <label for="time2">Format 24 godzinny</label>
+            <input type="time" id="time" name="time2" min="00:00:00" max="24:00:00">
+            <br>
+            <p></p>
+            <label for="color">Color</label>
+            <input type="color" id="color" name="color" value="">
             <br>
             <p></p>
             <input type="button" value="Losowe inputy!" onclick="Random();" />
+
         </form>
     </div>
     <script>
