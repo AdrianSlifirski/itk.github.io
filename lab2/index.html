@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>lab2</title>
+    <title>lab1</title>
     <style>
       input:valid {
         border: 2px solid rgb(27, 138, 27);
@@ -51,15 +51,15 @@
             <br>
             <p></p>
             <label for="website">adres strony:</label>
-            <input type="url" id= "website" name="website" placeholder="https://www.google.com" pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?"/>
+            <input type="url" name="website" id="website" placeholder="https://www.google.com/" pattern="[Hh][Tt][Tt][Pp][Ss]?://(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)[a-zA-Z\u00a1-\uffff0-9]+)(?:.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)[a-zA-Z\u00a1-\uffff0-9]+)(?:.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:/[^\s])?"/>
             <br>
             <p></p>
             <label for="pathToCatalog">ścieżka do pliku w katalogu /etc/ </label>
-            <input type="" id= "pathToCatalog" name="pathToCatalog" placeholder="C:\test2\test" pattern="[a-zA-Z]:\(windows|winnt|win|dos|msdos)(\[0-9a-z]+)?"/>
+            <input type="" id= "pathToCatalog" name="pathToCatalog" placeholder="C:\test2\test" pattern="\/etc(\/[a-zA-Z]+)+"/>
             <br>
             <p></p>
             <label for="pathWithLetter">ścieżka litera dysku:\katalog systemu</label>
-            <input type="" id= "pathWithLetter" name="pathWithLetter" placeholder="c:\test" pattern="^(?:[a-z]:)?[\/\\]{0,2}(?:[.\/\\ ](?![.\/\\\n])|[^<>:|?*.\/\\ \n])+$"/>
+            <input type="" id= "pathWithLetter" name="pathWithLetter" placeholder="c:\test" pattern="^[a-zA-Z]:\\[a-z\\]*"/>
             <br>
             <p></p>
             <label for="teleNumber">Numer telefonu: </label>
@@ -100,8 +100,8 @@
         const ip4s = ["127.255.255.255", "12722225.255.com", "test111111om"];
         const ip6s = ["2001:0db8:85a3:0000:0000:8a2e:0370:7334", "5435435343", "2001:0db8:85a3:0000:0000:8a2e:0370:7344"];
         const websites = ["https://www.google.com", "106-22222-00-062", "aaaaaaaaaaaa"];
-        const pathToCatalogs = ["/etc/passwd", "/etc/passwd", "1211"];
-        const pathWithLetters = ["C:\test", "106-00-00-062", "aaaaaaaaaaaa"];
+        const pathToCatalogs = ["/etc/passwd", "/etc/passddwd", "1211"];
+        const pathWithLetters = ["c:\\users\\ri\\documents", "106-00-00-062", "aaaaaaaaaaaa"];
         const teleNumbers = ["536013232", "ABC56", "111111"];
         const calendar = ["2012-11-11", "2012-10-17", "2022-11-17"];
         const calendar2 = ["2012-11-11", "2022-10-17", "2022-11-17"];
