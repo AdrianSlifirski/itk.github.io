@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>lab1</title>
+    <style>
+      input:valid {
+        border: 2px solid rgb(27, 138, 27);
+      }
+      input:invalid {
+        border: 2px dashed rgb(161, 0, 0);
+      }
+      .center {
+        margin: auto;
+        width: 60%;
+        border: 3px solid #2009a1;
+        padding: 10px;
+        }       
+    </style>
+</head>
+<body>
+    <div class="center">
+        <span style="font-size: large">Wprowadz dane!</span>
+        <p></p>
+        <form>
+            <label for="emailAddress">adres email</label>
+            <input type="email" id= "emailAddress" name="emailAddress" placeholder="testowyemail@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"/>
+            <br>
+            <p></p>
+            <label for="zipCode">kod pocztowy</label>
+            <input type="" id= "zipCode" name="zipCode" placeholder="11-222" pattern="[0-9]{2}-[0-9]{3}"/>
+            <br>
+            <p></p>
+            <label for="nip">kod NIP</label>
+            <input type="" id= "nip" name="nip"placeholder="333-333-33-33" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"/>
+            <br>
+            <p></p>
+            <label for="idCard">numer dowodu</label>
+            <input type="" id= "idCard" name="idCard" placeholder="CEM443322" pattern="[A-Z]{3}[0-9]{6}"/>
+            <br>
+            <p></p>
+            <label for="ip4">ipv4: </label>
+            <input type="" id= "ip4" name="ip4" placeholder="198.168.2.3" pattern="((^|\.)((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]?\d))){4}$"/>
+            <br>
+            <p></p>    
+            <label for="ip6">ipv6: </label>
+            <input type="" id= "ip6" name="ip6" placeholder="1111:0ee8:eeee:1111:0000:3b1c:0370:7334" pattern="((^|:)([0-9a-fA-F]{0,4})){1,8}$"/>
+            <br>
+            <p></p>
+            <label for="website">adres strony:</label>
+            <input type="url" id= "website" name="website" placeholder="https://www.google.com" pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?"/>
+            <br>
+            <p></p>
+            <label for="pathToCatalog">ścieżka do pliku w katalogu /etc/ </label>
+            <input type="" id= "pathToCatalog" name="pathToCatalog" placeholder="C:\test2\test" pattern="[a-zA-Z]:\(windows|winnt|win|dos|msdos)(\[0-9a-z]+)?"/>
+            <br>
+            <p></p>
+            <label for="pathWithLetter">ścieżka litera dysku:\katalog systemu</label>
+            <input type="" id= "pathWithLetter" name="pathWithLetter" placeholder="c:\test" pattern="^(?:[a-z]:)?[\/\\]{0,2}(?:[.\/\\ ](?![.\/\\\n])|[^<>:|?*.\/\\ \n])+$"/>
+            <br>
+            <p></p>
+            <label for="teleNumber">Numer telefonu: </label>
+            <input type="tel" id= "teleNumber" name="teleNumber" placeholder="123456789" pattern="[1-9][0-9]{8}"/>
+            <br>
+            <p></p>
+            <label for="birthday">Kalendarz</label>
+            <input type="date" id="birthday" name="birthday"> 
+            <br>
+            <p></p>
+            <input type="button" value="Losowe inputy!" onclick="Random();" />
+        </form>
+    </div>
+    <script>
+    function Random() {
+        var rnd = getRandomInt(3);
+        const emails = ["testowyemail@gmail.com", "testowyema123123mail.com", "testowyemai1111111om"];
+        const zipCodes = ["1321adsa", "26-200", "90-001"];
+        const nips = ["Pasda67890", "106-00-00-062", "aaaaaaaaaaaa"];
+        const idCards = ["ABC123456", "ABC56", "1211"];
+        const ip4s = ["127.255.255.255", "12722225.255.com", "test111111om"];
+        const ip6s = ["2001:0db8:85a3:0000:0000:8a2e:0370:7334", "5435435343", "2001:0db8:85a3:0000:0000:8a2e:0370:7344"];
+        const websites = ["https://www.google.com", "106-22222-00-062", "aaaaaaaaaaaa"];
+        const pathToCatalogs = ["/etc/passwd", "/etc/passwd", "1211"];
+        const pathWithLetters = ["C:\test", "106-00-00-062", "aaaaaaaaaaaa"];
+        const teleNumbers = ["536013232", "ABC56", "111111"];
 
+        document.getElementById('emailAddress').value = emails[rnd];
+        document.getElementById('zipCode').value = zipCodes[rnd];
+        document.getElementById('nip').value = nips[rnd];
+        document.getElementById('idCard').value = idCards[rnd];
+        document.getElementById('ip4').value = ip4s[rnd];
+        document.getElementById('ip6').value = ip6s[rnd];
+        document.getElementById('website').value = websites[rnd];
+        document.getElementById('pathToCatalog').value = pathToCatalogs[rnd];
+        document.getElementById('pathWithLetter').value = pathWithLetters[rnd];
+        document.getElementById('teleNumber').value = teleNumbers[rnd];
+        }
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+        }
+    </script>
+    
+</body>
+</html>
