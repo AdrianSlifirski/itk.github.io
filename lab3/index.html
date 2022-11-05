@@ -1,1 +1,145 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+    src="https://kit.fontawesome.com/3da1a747b2.js"
+    crossorigin="anonymous">
+    </script>
+    <title>lab3</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+        :root {
+        --border-color: #e3e5e4;
+        --background-color: #6e6e6e;
+        --text-color: #00076d;
+        }
+        * {
+        box-sizing: border-box;
+        }
+        body {
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: 50vh;
+        margin: 0;
+        font-family: 'Lato', sans-serif;
+        }
+        .draggable-list {
+        border: 1px solid var(--border-color);
+        color: var(--text-color);
+        padding: 0;
+        list-style-type: none;
+        }
+        .draggable-list li {
+        background-color: #fff;
+        display: flex;
+        flex: 1;
+        }
+        .draggable-list .number {
+        background-color: var(--background-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        height: auto;
+        width: 30px;
+        }
+        .draggable-list li.over .draggable {
+        background-color: #eaeaea;
+        }
+        .draggable-list .element-name {
+        margin: 0 20px 0 0;
+        }
+        .draggable {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <h1>Edytowalna lista</h1>
+        <ul class="draggable-list" id="draggable-list"></ul>
+    </div>
+    <script>
+        const draggable_list = document.getElementById('draggable-list');
+        const listOfElements = ['Element1', 'Element2', 'Element3', 'Element4', 'Element5', 'Element6', 'Element7', 'Element8', 'Element9', 'Element10'];
+        const check = document.getElementById('check');
+        const listItems = [];
+        let dragStartIndex;
+        createList();
+        function createList(){
+        [...listOfElements]
+            .map(a => ({value: a, sort: Math.random()}))
+            .sort((a, b) => a.sort - b.sort)
+            .map(a => a.value)
+            .forEach((element, index) => {
+            const listItem = document.createElement('li');
+            listItem.setAttribute('data-index', index);
+            listItem.innerHTML = `
+                <span class="number">${index + 1}</span>
+                <div class="draggable" draggable="true">
+                <p class="element-name" contenteditable="true">${element}</p>
+                </div>`;
+            listItems.push(listItem);
+            draggable_list.appendChild(listItem);
+            });
+        addEventListeners();
+        }
+        function swapItems(fromIndex, toIndex) {
+        const itemOne = listItems[fromIndex].querySelector('.draggable');
+        const itemTwo = listItems[toIndex].querySelector('.draggable');
+        listItems[fromIndex].appendChild(itemTwo);
+        listItems[toIndex].appendChild(itemOne);
+        }
+
+        function addEventListeners() {
+        const draggables = document.querySelectorAll('.draggable');
+        const dragListItems = document.querySelectorAll('.draggable-list li');
+
+        draggables.forEach(draggable => {
+            draggable.addEventListener('dragstart', dragStart);
+        });
+
+        dragListItems.forEach(item => {
+            item.addEventListener('dragover', dragOver);
+            item.addEventListener('drop', dragDrop);
+            item.addEventListener('dragenter', dragEnter);
+            item.addEventListener('dragleave', dragLeave);
+        });
+        }
+
+        function dragStart() {
+        dragStartIndex = +this.closest('li').getAttribute('data-index');
+        }
+
+        function dragEnter() {
+        this.classList.add('over');
+        }
+
+        function dragLeave() {
+        this.classList.remove('over');
+        }
+
+        function dragOver(e) {
+        e.preventDefault();
+        }
+
+        function dragDrop() {
+        const dragEndIndex = +this.getAttribute('data-index');
+        swapItems(dragStartIndex, dragEndIndex);
+        this.classList.remove('over');
+        }
+    </script>
+</body>
+</html>
