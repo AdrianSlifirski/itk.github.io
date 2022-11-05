@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +36,7 @@
         list-style-type: none;
         }
         .draggable-list li {
-        background-color: #fff;
+        background-color: rgb(247, 186, 186);
         display: flex;
         flex: 1;
         }
@@ -51,7 +50,7 @@
         width: 30px;
         }
         .draggable-list li.over .draggable {
-        background-color: #eaeaea;
+        background-color: #af4040;
         }
         .draggable-list .element-name {
         margin: 0 20px 0 0;
@@ -64,12 +63,57 @@
         padding: 15px;
         flex: 1;
         }
+        .container{
+            height: 1800px;
+            width: 100%;
+        }
+        .container .left {
+            background-size: auto;
+            width: 30%;
+            float: left;
+        }
+        .container .right {
+            width: 70%;
+            float: left;
+            height: 100%;
+        }
+        .container .right .button{
+            background-color: rgb(18, 18, 19);
+            height: 20%;
+        }
+        .container .right .platform{
+            background-color: rgb(2, 2, 63);
+            height: 80%;
+        }
+        h1 {
+            text-align: center;
+        }
+        .draggable-list {
+            text-align: center;
+        }
+
+        test {
+            position:absolute;
+            width:20px;
+            height:20px;
+            }
     </style>
 </head>
 <body>
-    <div class="center">
-        <h1>Edytowalna lista</h1>
-        <ul class="draggable-list" id="draggable-list"></ul>
+    <div class="container">
+        <div class="right">
+            <div class="platform" id="platformTEST">
+            </div>
+            <div class="button" id="buttonTEST">
+                <button>BUTTON TEST</button>
+            </div>
+        </div>
+        <div class="left">
+            <div class="center">
+                <h1>Edytowalna lista</h1>
+                <ul class="draggable-list" id="draggable-list"></ul>
+            </div>
+        </div>
     </div>
     <script>
         const draggable_list = document.getElementById('draggable-list');
@@ -118,28 +162,45 @@
             item.addEventListener('dragleave', dragLeave);
         });
         }
-
         function dragStart() {
         dragStartIndex = +this.closest('li').getAttribute('data-index');
         }
-
         function dragEnter() {
         this.classList.add('over');
         }
-
         function dragLeave() {
         this.classList.remove('over');
         }
-
         function dragOver(e) {
         e.preventDefault();
         }
-
         function dragDrop() {
-        const dragEndIndex = +this.getAttribute('data-index');
-        swapItems(dragStartIndex, dragEndIndex);
-        this.classList.remove('over');
+            const dragEndIndex = +this.getAttribute('data-index');
+            swapItems(dragStartIndex, dragEndIndex);
+            this.classList.remove('over');
         }
+
+        function pickColor(){
+            var colorArray = ["red", "green", "yellow", "blue"];
+            return colorArray[Math.floor(Math.random() * colorArray.length)];
+        }
+
+        function pickPos(){
+            return Math.floor((Math.random()*300)+100) + "px";
+        }
+
+        function addSquare(){
+            var div = document.createElement("test");
+            div.style.background = pickColor();
+            
+            div.style.left=pickPos();
+            div.style.top=pickPos();
+            
+            document.getElementById("platformTEST").append(div);
+        }
+
+        var button = document.getElementById("buttonTEST");
+        button.onclick = addSquare;
     </script>
 </body>
 </html>
